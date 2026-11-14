@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.1 - 2026-11-14
+
+### Fixes
+
+- Require internetdata 2.12.1: a 403 can mean the key lacks the ip.lookup scope ([`e084a6e`](https://github.com/internetdata/sdk-python-flask/commit/e084a6ef78e157babf8ec301f184bbfb4d297864))
+
 ## 1.0.0 - 2026-11-14
 
 ### Features
