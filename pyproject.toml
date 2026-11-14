@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "internetdata-flask"
+dynamic = ["version"]
+description = "Official Flask extension for the InternetData API. Look up the visitor behind every request: location, network, VPN, proxy, Tor and hosting."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Mslm Dev", email = "support@internetdata.io" }]
+keywords = ["internetdata", "ip-geolocation", "ip-intelligence", "ip-lookup", "geoblocking", "vpn-detection", "proxy-detection", "tor", "hosting", "asn", "middleware", "flask"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+dependencies = ["internetdata>=2.12.0,<3", "flask>=3.0"]
+
+[project.urls]
+Homepage = "https://internetdata.io"
+Source = "https://github.com/internetdata/sdk-python-flask"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.11", "ruff>=0.6"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/internetdata_flask"]
+
+[tool.hatch.version]
+path = "src/internetdata_flask/__init__.py"
+
+[tool.ruff]
+line-length = 96
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
