@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.3 - 2026-11-19
+
+### Fixes
+
+- Require internetdata 2.15.2: a reduced answer is cached a minute at most ([`f786263`](https://github.com/internetdata/sdk-python-flask/commit/f786263e3953a28c33419d962a3999a026ffa3a3))
+
 ## 1.0.2 - 2026-11-19
 
 ### Fixes
