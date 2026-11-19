@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.2 - 2026-11-19
+
+### Fixes
+
+- Require internetdata 2.15.1: cap_reached on a paid answer past its overage cap ([`714a9eb`](https://github.com/internetdata/sdk-python-flask/commit/714a9ebe0b038d7ad7eb9cb09560ae901bd7c174))
+
 ## 1.0.1 - 2026-11-14
 
 ### Fixes
