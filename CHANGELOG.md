@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.4 - 2026-11-20
+
+### Features
+
+- Require internetdata 2.16.0: a tier, standing, license type, format or outcome the API adds reads as served ([`32dda09`](https://github.com/internetdata/sdk-python-flask/commit/32dda091ae1ab690b860ff93d06aeb2bc35d7f51))
+
 ## 1.0.3 - 2026-11-19
 
 ### Fixes
