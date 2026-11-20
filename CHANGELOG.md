@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.5 - 2026-11-20
+
+### Features
+
+- Require internetdata 2.17.0: a paid domain answer's hosting, co-hosted domains, home page, redirects and backlinks ([`aed52f5`](https://github.com/internetdata/sdk-python-flask/commit/aed52f5d22873f38429fb14ecc0b0fc12d0a2836))
+
 ## 1.0.4 - 2026-11-20
 
 ### Features
