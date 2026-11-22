@@ -437,3 +437,35 @@ def test_the_readme_extension_sends_its_key_for_a_public_peer(
     assert body["error"] is None and body["country"] == "AT"
     assert len(sent) == 1 and sent[0][0].endswith(PUBLIC_IP)
     assert sent[0][1] == (f"Bearer {key}" if key else None)
+
+
+# The bot flag arrived with a re-pin: the README's extension with a condition on it, served
+# a PUBLIC peer, refuses a crawler's address and lets a person's through, with no warning,
+# since every plan answers it.
+def test_a_condition_on_the_bot_flag_refuses_a_bot_from_a_public_peer(
+    monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
+) -> None:
+    bot = ANSWERS["paid-bot"]
+    served = {bot["ip"]: bot, PUBLIC_IP: {**UNLIMITED, "ip": PUBLIC_IP}}
+    sent: list[str] = []
+
+    def handle(_transport: httpx.HTTPTransport, request: httpx.Request) -> httpx.Response:
+        if request.url.host != "api.internetdata.io":
+            raise httpx.ConnectError("only the API's host answers here", request=request)
+        ip = request.url.path.lstrip("/")
+        sent.append(ip)
+        return httpx.Response(200, json=served[ip])
+
+    monkeypatch.setattr(httpx.HTTPTransport, "handle_request", handle)
+    monkeypatch.setenv("INTERNETDATA_API_KEY", "a-key")
+    app = app_with(
+        api_key=os.environ.get("INTERNETDATA_API_KEY"), block_condition={"is_bot": True}
+    )
+    statuses = [
+        app.test_client().get("/", environ_base={"REMOTE_ADDR": peer}).status_code
+        for peer in (bot["ip"], PUBLIC_IP)
+    ]
+
+    assert statuses == [403, 200]
+    assert sent == [bot["ip"], PUBLIC_IP]
+    assert not [r for r in caplog.records if "is_bot" in r.getMessage()], "no member is missing"
