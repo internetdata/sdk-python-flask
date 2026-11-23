@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.7 - 2026-11-23
+
+### Fixes
+
+- Require internetdata 2.18.1: whose operator an unverified bot names ([`e3eceb1`](https://github.com/internetdata/sdk-python-flask/commit/e3eceb16c7d0f571621ec1ac1e63ad6324d0f257))
+
 ## 1.0.6 - 2026-11-22
 
 ### Features
