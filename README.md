@@ -64,7 +64,7 @@ A condition is written in the shape of a result, keyed by the same names the API
 {"resproxy": {"hits": {"gte": 5}}}  # a numeric threshold
 ```
 
-Values are matched by equality, strings without regard to case. A list means any-of. A dict of `gte`/`gt`/`lte`/`lt` compares numbers, and every bound you give must hold, so two of them are a range. Members set to `False` or `None` are ignored, so a condition states the signals you act on; one that constrains nothing would match every request, and is refused when the extension is built rather than silently blocking all your traffic.
+Values are matched by equality, strings without regard to case. A list means any-of. A member the answer holds as a list, such as `web`'s rows or `pubproxy`'s `protocols`, matches when any one element does: `{"web": {"port": 443}}`. A dict of `gte`/`gt`/`lte`/`lt` compares numbers, and every bound you give must hold, so two of them are a range. Members set to `False` or `None` are ignored, so a condition states the signals you act on; one that constrains nothing would match every request, and is refused when the extension is built rather than silently blocking all your traffic.
 
 Replace the refusal with `on_blocked`, which takes the answer and returns a response:
 
