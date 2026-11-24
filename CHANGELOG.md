@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.8 - 2026-11-24
+
+### Features
+
+- Require internetdata 2.19.0: a block condition matches any element of a list member ([`751ce38`](https://github.com/internetdata/sdk-python-flask/commit/751ce3851859943472d00b5437b356b790529adf))
+
 ## 1.0.7 - 2026-11-23
 
 ### Fixes
