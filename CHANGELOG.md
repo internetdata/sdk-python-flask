@@ -2,6 +2,13 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.1.0 - 2026-11-25
+
+### Features
+
+- Require internetdata 2.20.0: a user agent with a lookup, and allow_bots in the middleware core ([`3a3db45`](https://github.com/internetdata/sdk-python-flask/commit/3a3db458e7ac8aed7a5f24d6b524c093bdd0cf0e))
+- Let a verified crawler through with allow_bots ([`cc29280`](https://github.com/internetdata/sdk-python-flask/commit/cc29280d4babb0b9031a301fff2a409d6d6bfd8c))
+
 ## 1.0.8 - 2026-11-24
 
 ### Features
