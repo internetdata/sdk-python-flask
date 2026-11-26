@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.1.1 - 2026-11-26
+
+### Features
+
+- Require internetdata 2.21.0: a keyless answer without the bot, carrier, satellite and service flags reads ([`a916d96`](https://github.com/internetdata/sdk-python-flask/commit/a916d9647c46b1bb76e099f1b61c15a13388318b))
+
 ## 1.1.0 - 2026-11-25
 
 ### Features
