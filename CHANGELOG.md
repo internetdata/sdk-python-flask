@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.1.2 - 2026-11-27
+
+### Features
+
+- Require internetdata 2.22.0: a keyless answer without the AS's type reads ([`6172554`](https://github.com/internetdata/sdk-python-flask/commit/6172554bc6127b8d63f914fede9ddf3950b95647))
+
 ## 1.1.1 - 2026-11-26
 
 ### Features
