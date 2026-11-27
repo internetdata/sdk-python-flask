@@ -119,12 +119,24 @@ def test_blocks_on_a_country_and_the_view_never_runs() -> None:
 def test_blocks_on_a_network_type_and_on_anonymity() -> None:
     status, _ = get(
         app_with(
-            client=serving(UNLIMITED),
+            client=serving(PAID),
             ip_selector=fixed_ip,
             block_condition={"asn": {"type": "hosting"}},
         )
     )
-    assert status == 403, "the network's type is served on every plan"
+    assert status == 403, "the network's type is a paid answer's"
+
+    warnings: list[str] = []
+    status, _ = get(
+        app_with(
+            client=serving(UNLIMITED),
+            ip_selector=fixed_ip,
+            block_condition={"asn": {"type": "hosting"}},
+            on_warn=warnings.append,
+        )
+    )
+    assert status == 200, "an Unlimited answer carries no type, so the term never matches"
+    assert len(warnings) == 1 and warnings[0].startswith("block_condition names asn.type,")
 
     status, _ = get(
         app_with(

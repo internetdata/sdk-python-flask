@@ -52,11 +52,11 @@ InternetData(
 )
 ```
 
-A condition is written in the shape of a result, keyed by the same names the API uses, and only the members you name are considered, so it can refuse on anything in the answer. The country works on every plan, and so do the first two of these:
+A condition is written in the shape of a result, keyed by the same names the API uses, and only the members you name are considered, so it can refuse on anything in the answer. The country works on every plan, and so does the first of these:
 
 ```python
-{"asn": {"type": "hosting"}}  # the network's type
 {"is_anycast": True}  # anycast space
+{"asn": {"type": "hosting"}}  # the network's type
 [{"is_bot": True}, {"is_satellite": True}]  # crawlers, monitors and scanners; satellite space
 [{"is_hosting": True}, {"is_cdn": True}]  # traffic from servers, not people
 [{"is_vpn": True}, {"is_tor": True}, {"is_resproxy": True}]  # anonymity: a list is OR
@@ -149,7 +149,7 @@ Beyond a few million distinct visitors a day, stop calling the API per request: 
 
 ## Absent is not false
 
-Unlimited, with a key or without one, leaves out `is_vpn`, `is_hosting`, `is_cdn`, the four proxy flags, `is_bot`, `is_carrier`, `is_satellite`, the service flags (`is_ssh`, `is_smtp`, `is_web`, `is_dns_resolver` and `is_bittorrent`), the detail behind them and `bot`, and the paid members inside `location`, `asn`, `company` and `abuse`, such as `location.city`. A field your plan does not include is `None`, which means "not in your plan" rather than "checked, and no". The exception, until the next major of `internetdata`, is `is_bot`, `is_carrier`, `is_satellite` and the service flags: they stay plain `bool`s and read `False` when the answer leaves them out, so `result.raw` is how you tell a flag the answer carried from one it did not.
+Unlimited, with a key or without one, leaves out `is_vpn`, `is_hosting`, `is_cdn`, the four proxy flags, `is_bot`, `is_carrier`, `is_satellite`, the service flags (`is_ssh`, `is_smtp`, `is_web`, `is_dns_resolver` and `is_bittorrent`), the detail behind them and `bot`, and the paid members inside `location`, `asn`, `company` and `abuse`, such as `location.city` and `asn.type`. A field your plan does not include is `None`, which means "not in your plan" rather than "checked, and no". The exception, until the next major of `internetdata`, is `is_bot`, `is_carrier`, `is_satellite`, the service flags and `asn.type`: they keep their plain types, `bool` and `str`, and read `False` and `""` when the answer leaves them out, so `result.raw` is how you tell a member the answer carried from one it did not.
 
 ```python
 lookup().result.flagged("is_vpn")  # False rather than None on a plan without it

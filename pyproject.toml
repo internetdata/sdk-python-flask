@@ -24,7 +24,7 @@ classifiers = [
     "Topic :: Security",
     "Typing :: Typed",
 ]
-dependencies = ["internetdata>=2.21.0,<3", "flask>=3.0"]
+dependencies = ["internetdata>=2.22.0,<3", "flask>=3.0"]
 
 [project.urls]
 Homepage = "https://internetdata.io"
