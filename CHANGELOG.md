@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.1.3 - 2026-11-28
+
+### Features
+
+- Require internetdata 2.23.0: allow_bots sends only a crawler's User-Agent, at most four an address ([`9aa4ac1`](https://github.com/internetdata/sdk-python-flask/commit/9aa4ac1bb8e7062485a6a73cf9054b64bbf97be6))
+
 ## 1.1.2 - 2026-11-27
 
 ### Features
